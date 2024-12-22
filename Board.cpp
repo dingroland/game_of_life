@@ -56,11 +56,23 @@ void GameBoard::advanceGeneration() {
             } else {
                 nextGrid[i][j] = (liveNeighbors == 3) ? CellState::ALIVE : CellState::DEAD;
             }
+
+            // Debugging: Print cell state transitions
+            std::cout << "Cell (" << i << "," << j << "): "
+                      << cellToChar(grid[i][j]) << " -> "
+                      << cellToChar(nextGrid[i][j])
+                      << " (Live Neighbors: " << liveNeighbors << ")\n";
         }
     }
 
     grid = nextGrid;
+
+    // Debugging: Print the grid after every generation
+    std::cout << "Generation Complete:\n";
+    printBoard();
+    std::cout << std::string(20, '-') << "\n";  // Separator for readability
 }
+
 
 int GameBoard::countLiveNeighbors(int row, int col) const {
     int liveCount = 0;
