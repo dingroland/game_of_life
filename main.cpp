@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Board.h"
-#include "timing.h"
+#include "Timing.h"
 
 void print_usage() {
     std::cout << "Usage: gol --load <filename> --save <filename> --generations <n> --measure\n";
